@@ -1,13 +1,13 @@
 [
-  {
-    "license_name": "Apache 2.0",
-    "license_url": "https://choosealicense.com/licenses/apache-2.0/",
-    "name": "SaigaMistral-7B",
-    "provider_url": "https://huggingface.co/IlyaGusev/saiga_mistral_7b_gguf",
-    "chat_template": "<s>{% for message in messages %}{% if (message['role'] == 'user') != (loop.index0 % 2 == 0) %}{{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}{% endif %}{% if message['role'] == 'user' %}{{ '[INST] ' + message['content'] + ' [/INST]' }}{% elif message['role'] == 'assistant' %}{{ message['content'] + '</s> ' }}{% else %}{{ raise_exception('Only user and assistant roles are supported!') }}{% endif %}{% endfor %}",
-    "urls": [
-      "https://huggingface.co/IlyaGusev/saiga_mistral_7b_gguf/resolve/main/model-q8_0.gguf"
-    ],
-    "sha256": "a39fdd999a61231b274ea7ed14aaca0e77e1bd8754699542328a84ceaeba4ab6"
-  }
+    {
+        "license_name": "Apache 2.0",
+        "license_url": "https://choosealicense.com/licenses/apache-2.0/",
+        "name": "SaigaMistral-7B",
+        "provider_url": "https://huggingface.co/IlyaGusev/saiga_mistral_7b_gguf",
+        "chat_template": "{% if messages[0]['role'] == 'system' %}{% set loop_messages = messages[1:] %}{% set system_message = messages[0]['content'].strip() + '\n\n' %}{% else %}{% set loop_messages = messages %}{% set system_message = '' %}{% endif %}{{ bos_token }}{% for message in loop_messages %}{% if (message['role'] == 'user') != (loop.index0 % 2 == 0) %}{{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}{% endif %}{% if loop.index0 == 0 %}{% set content = system_message + message['content'] %}{% else %}{% set content = message['content'] %}{% endif %}{% if message['role'] == 'user' %}{{ '[INST] ' + content.strip() + ' [/INST]' }}{% elif message['role'] == 'assistant' %}{{ ' '  + content.strip() + ' ' + eos_token }}{% endif %}{% endfor %}",
+        "urls": [
+            "https://huggingface.co/IlyaGusev/saiga_mistral_7b_gguf/resolve/main/model-q8_0.gguf"
+        ],
+        "sha256": "a39fdd999a61231b274ea7ed14aaca0e77e1bd8754699542328a84ceaeba4ab6"
+    }
 ]
