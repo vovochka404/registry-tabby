@@ -11,6 +11,17 @@
         "sha256": "8c966a9ec25ba7be0f9252de4e6894dc40526b289b69525172e35087b83451e2"
     },
     {
+        "license_name": "llama3",
+        "license_url": "https://huggingface.co/meta-llama/Meta-Llama-3-8B/blob/main/LICENSE",
+        "name": "SaigaLlama3-8B-Instruct",
+        "provider_url": "https://huggingface.co/IlyaGusev/saiga_llama3_8b_gguf/",
+        "chat_template": "{{'<|begin_of_text|>'}}{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
+        "urls": [
+            "https://huggingface.co/IlyaGusev/saiga_llama3_8b_gguf/resolve/main/model-q8_0.gguf?download=true"
+        ],
+        "sha256": "cec2e92575a84f100dfe25cfd758760bf7bd4a7c98a0d015182b8e1d8144c58d"
+    },
+    {
         "license_name": "Apache 2.0",
         "license_url": "https://choosealicense.com/licenses/apache-2.0/",
         "name": "SaigaMistral-7B",
