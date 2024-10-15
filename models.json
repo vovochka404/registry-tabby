@@ -24,7 +24,7 @@
     {
         "license_name": "llama3.2",
         "license_url": "https://huggingface.co/meta-llama/Llama-3.2-3B-Instruct/blob/main/LICENSE.txt",
-        "name": "Llama3-8B-Instruct",
+        "name": "Llama3.2-3B-Instruct",
         "provider_url": "https://huggingface.co/QuantFactory/Llama-3.2-3B-Instruct-GGUF/",
         "chat_template": "{{'<|begin_of_text|>'}}{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
         "urls": [
