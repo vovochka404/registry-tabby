@@ -6,7 +6,7 @@
         "provider_url": "https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/",
         "chat_template": "{{'<|begin_of_text|>'}}{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
         "urls": [
-            "https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/resolve/main/Meta-Llama-3-8B-Instruct.Q8_0.gguf?download=true"
+            "https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/resolve/main/Meta-Llama-3-8B-Instruct.Q8_0.gguf"
         ],
         "sha256": "8c966a9ec25ba7be0f9252de4e6894dc40526b289b69525172e35087b83451e2"
     },
@@ -17,7 +17,7 @@
         "provider_url": "https://huggingface.co/QuantFactory/Meta-Llama-3.1-8B-Instruct-GGUF/",
         "chat_template": "{{'<|begin_of_text|>'}}{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
         "urls": [
-            "https://huggingface.co/QuantFactory/Meta-Llama-3.1-8B-Instruct-GGUF/resolve/main/Meta-Llama-3.1-8B-Instruct.Q8_0.gguf?download=true"
+            "https://huggingface.co/QuantFactory/Meta-Llama-3.1-8B-Instruct-GGUF/resolve/main/Meta-Llama-3.1-8B-Instruct.Q8_0.gguf"
         ],
         "sha256": "e240fae33a33be0a820880e81239938f7a28e49010487a14a9f04ac672fa48cc"
     },
@@ -28,7 +28,7 @@
         "provider_url": "https://huggingface.co/QuantFactory/Llama-3.2-3B-Instruct-GGUF/",
         "chat_template": "{{'<|begin_of_text|>'}}{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
         "urls": [
-            "https://huggingface.co/QuantFactory/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct.Q8_0.gguf?download=true"
+            "https://huggingface.co/QuantFactory/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct.Q8_0.gguf"
         ],
         "sha256": "6c17f17637737118e9e99ab842a7073e7623f0f08288a7e4e4cc34438b5bc1fd"
     },
@@ -39,10 +39,22 @@
         "provider_url": "https://huggingface.co/IlyaGusev/saiga_llama3_8b_gguf/",
         "chat_template": "{{'<|begin_of_text|>'}}{% set loop_messages = messages %}{% for message in loop_messages %}{% set content = '<|start_header_id|>' + message['role'] + '<|end_header_id|>\n\n'+ message['content'] | trim + '<|eot_id|>' %}{{ content }}{% endfor %}{{ '<|start_header_id|>assistant<|end_header_id|>\n\n' }}",
         "urls": [
-            "https://huggingface.co/IlyaGusev/saiga_llama3_8b_gguf/resolve/main/model-q8_0.gguf?download=true"
+            "https://huggingface.co/IlyaGusev/saiga_llama3_8b_gguf/resolve/main/model-q8_0.gguf"
         ],
         "sha256": "cec2e92575a84f100dfe25cfd758760bf7bd4a7c98a0d015182b8e1d8144c58d"
     },
+    {
+        "license_name": "Mistral AI Non-Production License",
+        "license_url": "https://mistral.ai/licenses/MNPL-0.1.md",
+        "name": "Codestral-22B_Q6",
+        "provider_url": "https://huggingface.co/mistralai/Codestral-22B-v0.1",
+        "prompt_template": "[SUFFIX]{suffix}[PREFIX]{prefix}",
+        "chat_template": "<s>{% for message in messages %}{% if (message['role'] == 'user') != (loop.index0 % 2 == 0) %}{{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}{% endif %}{% if message['role'] == 'user' %}{{ '[INST] ' + message['content'] + ' [/INST]' }}{% elif message['role'] == 'assistant' %}{{ message['content'] + '</s> ' }}{% else %}{{ raise_exception('Only user and assistant roles are supported!') }}{% endif %}{% endfor %}",
+        "urls": [
+          "https://huggingface.co/bartowski/Codestral-22B-v0.1-GGUF/resolve/main/Codestral-22B-v0.1-Q6_K.gguf"
+        ],
+        "sha256": "107e1f2914bf7bac5bd43c4363f738728ba455b6bc62c590df342365ec3f8b3e"
+      },
     {
         "license_name": "Apache 2.0",
         "license_url": "https://choosealicense.com/licenses/apache-2.0/",
